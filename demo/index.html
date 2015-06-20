@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Console.Log Service Worker</title>
+</head>
+<body>
+    <p>Running Service Worker: <span class="version">Service Worker Not Installed</span></p>
+    <script>
+        navigator.serviceWorker.register('sw.js');
+    </script>
+    <script>
+        fetch('/version')
+            .then(respToJson)
+            .then(logAndSetVersion);
+
+        // respToJson :: Response -> a
+        function respToJson(resp) {
+            return resp.json();
+        }
+
+        // logAndSetVersion :: Number -> undefined
+        function logAndSetVersion(jsonResp) {
+            console.log('Got version response of: ', jsonResp);
+            document.querySelector('.version').textContent = jsonResp.version;
+        }
+    </script>
+</body>
+</html>
