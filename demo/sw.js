@@ -20,8 +20,8 @@ function handleActivate(e) {
 function handleFetch(e) {
     console.log('[FETCH] event:', e);
 
-    if (isVersionRequest(e.request)) return e.respondWith(versionResponse());
-    e.respondWith(fetch(e.request).then(logAndReturnResponse));
+    if (isVersionRequest(e.request)) e.respondWith(versionResponse());
+    else e.respondWith(fetch(e.request).then(logAndReturnResponse));
 
     // isVersionRequest :: Request -> Boolean
     function isVersionRequest(req) {
