@@ -5,6 +5,7 @@ var version = 1;
 self.addEventListener('install'  , handleInstall);
 self.addEventListener('activate' , handleActivate);
 self.addEventListener('fetch'    , handleFetch);
+// Chrome has not yet implemented the evicted and beforeevicted events.
 
 // handleInstall :: InstallEvent -> undefined
 function handleInstall(e) {
