@@ -19,10 +19,10 @@
             return resp.json();
         }
 
-        // logAndSetVersion :: Number -> undefined
-        function logAndSetVersion(jsonResp) {
-            console.log('Got version response of: ', jsonResp);
-            document.querySelector('.version').textContent = jsonResp.version;
+        // logAndSetVersion :: { version :: Number } -> undefined
+        function logAndSetVersion(respBody) {
+            console.log('Got version response of: ', respBody);
+            document.querySelector('.version').textContent = respBody.version;
         }
     </script>
 </body>

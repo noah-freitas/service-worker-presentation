@@ -50,31 +50,66 @@
                     <p>Service workers can register handlers for&mdash;and fulfill&mdash;network requests coming from the pages under its scope.</p>
                 </section>
                 <section>
-                    <h2>Functional vs. Lifecycle Events</h2>
-                </section>
-                <section>
-                    <h2>Service Worker Scope</h2>
-                </section>
-                <section>
-                    <h1>Dependencies</h1>
+                    <h3>Service Worker Scope</h3>
                     <ul>
-                        <li>Web Workers</li>
-                        <li>Fetch</li>
-                        <li>HTML</li>
-                        <li>ES6</li>
-                        <li>URL</li>
+                        <li>Scope is pathname prefix</li>
+                        <li>Multiple service workers per origin</li>
+                        <li>Non-overlaping scopes</li>
                     </ul>
                 </section>
                 <section>
-                    <h1>Not Covered</h1>
+                    <h2>Lifecycle vs. Functional Events</h2>
+                </section>
+                <section>
+                    <h3>Lifecycle Events</h3>
                     <ul>
-                        <li>Cache</li>
-                        <li>CacheStorage</li>
-                        <li>Client</li>
-                        <li>ExtendableEvent.prototype.waitUntil</li>
-                        <li>ServiceWorkerContainer</li>
-                        <li>ServiceWorkerRegistration</li>
-                        <li>ServiceWorkerGlobalScope</li>
+                        <li>install</li>
+                        <li>activate</li>
+                        <li>beforeevicted</li>
+                        <li>evicted</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Functional Events</h3>
+                    <ul>
+                        <li>fetch</li>
+                        <li>message</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Programming the Network Layer</h2>
+                </section>
+                <section>
+                    <h3>fetch Event</h3>
+                    <ul>
+                        <li>request :: Request</li>
+                        <li>client :: Client</li>
+                        <li>isReload :: Boolean</li>
+                        <li>respondWith :: Response || Promise&lt;Response&gt; -> undefined</li>
+                        <li>forwardTo :: String -> Promise&lt;Response&gt;</li>
+                        <li>default :: undefined -> Promise&lt;Response&gt;</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Cache Object</h3>
+                    <ul>
+                        <li>match :: Request, CacheQueryOptions -> Promise&lt;Response&gt;</li>
+                        <li>matchAll :: Request, CacheQueryOptions -> Promise&lt;[Response]&gt;</li>
+                        <li>add :: Request -> Promise&lt;undefined&gt;</li>
+                        <li>addAll :: [Request] -> Promise&lt;undefined&gt;</li>
+                        <li>put :: Request, Reponse -> Promise&lt;undefined&gt;</li>
+                        <li>delete :: Request, CacheQueryOptions -> Promise&lt;Boolean&gt;</li>
+                        <li>keys :: Request, CacheQueryOptions -> Promise&lt;[Response]&gt;</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Fetch</h3>
+                    <ul>
+                        <li>fetch</li>
+                        <li>Request</li>
+                        <li>Response</li>
+                        <li>Headers</li>
+                        <li>Body</li>
                     </ul>
                 </section>
             </div>
